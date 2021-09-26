@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Profile from "./Profile/ProfileComponent";
 
 function App() {
+  const handleName = (name) => {
+    alert(`Hello ${name}`);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Profile name="ss" bio="balah" profession="sabbak" alertName={handleName}>
+        https://via.placeholder.com/150/#FF0000
+      </Profile>
+      <Profile alertName={handleName} />
+      <hr />
     </div>
   );
 }
