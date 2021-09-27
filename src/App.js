@@ -1,19 +1,35 @@
 import React from "react";
 import Profile from "./Profile/ProfileComponent";
 
-function App() {
-  const handleName = (name) => {
-    alert(`Hello ${name}`);
+class App extends React.Component {
+  state = {
+    show: false,
   };
-  return (
-    <div>
-      <Profile name="ss" bio="balah" profession="sabbak" alertName={handleName}>
-        https://via.placeholder.com/150/#FF0000
-      </Profile>
-      <Profile alertName={handleName} />
-      <hr />
-    </div>
-  );
+  content = () => {
+    if (this.state.show) {
+      return (
+        <>
+          <Profile name="ss" bio="balah" profession="sabbak">
+            https://via.placeholder.com/150/#FF0000
+          </Profile>
+          <hr />
+        </>
+      );
+    } else return null;
+  };
+
+  handleShow = () => {
+    this.setState({ show: !this.state.show });
+  };
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleShow}>Show/Hide</button>
+        {this.content()}
+      </div>
+    );
+  }
 }
 
 export default App;
